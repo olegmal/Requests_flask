@@ -9,7 +9,6 @@ def test_index_route():
     assert response.status_code == 200
     assert response.data.decode("utf-8") == "Testing Flask"
 
-# @pytest.mark.get_request
 def test_get_all_books():
     response = app.test_client().get('/bookapi/books')
     res = json.loads(response.data.decode("utf-8")).get("Books")
@@ -20,7 +19,6 @@ def test_get_all_books():
     assert type(res[1]) is dict
 
 
-# @pytest.mark.get_request
 def test_get_book_by_id():
     response = app.test_client().get('/bookapi/books/1')
     res = json.loads(response.data.decode("utf-8")).get("Book")
